@@ -17,10 +17,10 @@
 
 // Songs
 var mySong = {
-	"title":"24K Magic",
-	"artist":"Bruno Mars",
-	"mp3-url":"https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P",
-	"image-url":"https://images-na.ssl-images-amazon.com/images/I/71Gr9aCHQfL._SY355_.jpg",
+	"title":"Runnin",
+	"artist":"Pharrell Williams",
+	"mp3-url":"https://open.spotify.com/album/5ZX4m5aVSmWQ5iHAPQpT71",
+	"image-url":"js/runnin.jpg",
 }
 
 var myPlayList = [
@@ -49,9 +49,10 @@ var myPlayList = [
 
 // DOCUMENT READY FUNCTION
 $( document ).ready(function() {
-  
-
-
+  $('body').append("<p>Company name: " + mySong.title + "</p>");
+  $('body').append("<p>Artist: " + mySong.artist + "</p>");
+  $('body').append("<p>Mp3-Url: " + mySong["mp3-url"] + "</p>");
+  $('body').append("<img src =" + mySong["image-url"] + ">");
 
 });
 
