@@ -24,6 +24,7 @@ var mySong = {
 }
 
 var myPlayList = [
+	
 	{
 		"title":"24K Magic",
 		"artist":"Bruno Mars",
@@ -45,16 +46,31 @@ var myPlayList = [
 
 ]
 
+var firstSongTitle = myPlayList[0].title;
+var firstSongArtist = myPlayList[0].artist;
+var firstSongUrl = myPlayList[0]["mp3-url"];
+var firstSongImage = myPlayList[0]["image-url"];
 
+
+
+ $( document ).ready(function() {
+     for(var i = 0; i < myPlayList.length; i++) { 
+         $('body').append("<h3>" + myPlayList[i].title + "</h3>");
+         $('body').append("<p>Artist: " + myPlayList[i].artist + "</p>");
+         $('body').append("<p>Mp3-Url: " + myPlayList[i]["mp3-url"] + "</p>");
+         $('body').append("<img src =" + myPlayList[i]["image-url"] + ">");
+   	} 
+});
+	
 
 // DOCUMENT READY FUNCTION
-$( document ).ready(function() {
-  $('body').append("<p>Company name: " + mySong.title + "</p>");
-  $('body').append("<p>Artist: " + mySong.artist + "</p>");
-  $('body').append("<p>Mp3-Url: " + mySong["mp3-url"] + "</p>");
-  $('body').append("<img src =" + mySong["image-url"] + ">");
+// $( document ).ready(function() {
+//   $('body').append("<h3>" + firstSongTitle + "</h3>");
+//   $('body').append("<p>Artist: " + firstSongArtist + "</p>");
+//   $('body').append("<p>Mp3-Url: " + firstSongUrl + "</p>");
+//   $('body').append("<img src =" + firstSongImage + ">");
 
-});
+// });
 
 function displayList(){
 
