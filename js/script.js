@@ -15,13 +15,6 @@
 //******************TEST EARLY AND OFTEN USING console.log() ******************
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 
-// Songs
-var mySong = {
-	"title":"Runnin",
-	"artist":"Pharrell Williams",
-	"mp3-url":"https://open.spotify.com/album/5ZX4m5aVSmWQ5iHAPQpT71",
-	"image-url":"js/runnin.jpg",
-}
 
 var myPlayList = [
 	
@@ -44,12 +37,8 @@ var myPlayList = [
 		"image-url":"http://assets-s3.usmagazine.com/uploads/assets/articles/93827-justin-biebers-sorry-choreographer-spills-video-style-secrets-parris-goebel/1445638548_justin-bieber-sorry-dancers-zoom.jpg",
 	}
 
-]
+];
 
-var firstSongTitle = myPlayList[0].title;
-var firstSongArtist = myPlayList[0].artist;
-var firstSongUrl = myPlayList[0]["mp3-url"];
-var firstSongImage = myPlayList[0]["image-url"];
 
 
 
@@ -57,35 +46,71 @@ var firstSongImage = myPlayList[0]["image-url"];
      for(var i = 0; i < myPlayList.length; i++) { 
          $('body').append("<h3>" + myPlayList[i].title + "</h3>");
          $('body').append("<p>Artist: " + myPlayList[i].artist + "</p>");
-         $('body').append("<p>Mp3-Url: " + myPlayList[i]["mp3-url"] + "</p>");
-         $('body').append("<img src =" + myPlayList[i]["image-url"] + ">");
-   	} 
+         $('body').append("<p>Mp3-Url: " + "</p>" + "<a href=" + myPlayList[i]["mp3-url"]  + "</a>");
+         $('body').append("<img src = " + myPlayList[i]["image-url"] + ">");
+         $('body').append("<hr>");
+  	} 
+  	
+  	// $("").click(function() { 
+  		
+  		
+   //  } 
+  
+  
 });
+
+
 	
 
-// DOCUMENT READY FUNCTION
-// $( document ).ready(function() {
-//   $('body').append("<h3>" + firstSongTitle + "</h3>");
-//   $('body').append("<p>Artist: " + firstSongArtist + "</p>");
-//   $('body').append("<p>Mp3-Url: " + firstSongUrl + "</p>");
-//   $('body').append("<img src =" + firstSongImage + ">");
 
-// });
+
+
+
 
 function displayList(){
 
 
   
 }
-
 function clearList(){
   
   
   
 }
-
 function addSong(){
  
   
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// var mySong = {
+// 	"title":"Runnin",
+// 	"artist":"Pharrell Williams",
+// 	"mp3-url":"https://open.spotify.com/album/5ZX4m5aVSmWQ5iHAPQpT71",
+// 	"image-url":"js/runnin.jpg",
+// }
+
+// DOCUMENT READY FUNCTION
+
+// var firstSongTitle = myPlayList[0].title;
+// var firstSongArtist = myPlayList[0].artist;
+// var firstSongUrl = myPlayList[0]["mp3-url"];
+// var firstSongImage = myPlayList[0]["image-url"];
+
+// $( document ).ready(function() {
+//   $('body').append("<h3>" + firstSongTitle + "</h3>");
+//   $('body').append("<p>Artist: " + firstSongArtist + "</p>");
+//   $('body').append("<p>Mp3-Url: " + firstSongUrl + "</p>");
+//   $('body').append("<img src =" + firstSongImage + ">");
+// });
