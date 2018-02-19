@@ -44,23 +44,15 @@ var myPlayList = [
 
  $( document ).ready(function() {
      for(var i = 0; i < myPlayList.length; i++) { 
-         $('body').append("<h3>" + myPlayList[i].title + "</h3>");
-         $('body').append("<p>Artist: " + myPlayList[i].artist + "</p>");
-         $('body').append("<p>Mp3-Url: " + "</p>" + "<a href=" + myPlayList[i]["mp3-url"]  + "</a>");
-         $('body').append("<img src = " + myPlayList[i]["image-url"] + ">");
-         $('body').append("<hr>");
+         $('#songs_div').append("<h5>" + myPlayList[i].title + "</h5>");
+         $('#songs_div').append("<p>" + myPlayList[i].artist + "</p>");
+         //$('body').append("<p>Mp3-Url: " + "</p>" + "<a href=" + myPlayList[i]["mp3-url"]  + "</a>"); // This options is present when you press the three dots
+         //$('body').append("<img src = " + myPlayList[i]["image-url"] + ">"); // This option is present when you press the three dots
+         $('#songs_div').append("<div class='dots_div2'>" +  "<span class='dot'></span>"  + "<span class='dot'></span>" + "<span class='dot'></span>"+ "</div>");
+         $('#songs_div').append("<hr>");
   	} 
-  	
-  	// $("").click(function() { 
-  		
-  		
-   //  } 
-  
-  
 });
 
-
-	
 
 
 

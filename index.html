@@ -3,27 +3,64 @@
 
   <head>
       <title>Playlist</title>
-      <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
       <link rel="stylesheet" type="text/css" href="css/style.css">
+      <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <!--<script src="js/script.js"></script>-->
+      <script src="js/script.js"></script>
   </head>
 
   <body>
         <header>
-           <div class="container-fluid">
-             <h1>Music Playlist</h1> 
-        </header>
+          <div class="container-fluid">
+             <div class="row">
+               <div class="col-md-6">
+                 <h1>Music Playlist</h1> 
              </div>
-        <div class="artist_picture">
-           <img src="http://www.okayplayer.com/wp-content/uploads/2014/01/sam-smith-in-the-lonely-hour-track-list-album-cover.jpg">
-        </div>  
+             <div class="col-md-4"> 
+               <button class="btn btn-primary shuffle_button"><i class="fas fa-caret-right play_icon fa-2x"></i>Shuffle</button>
+               <div class="col-md-2 dots_div">
+                 <span class="dot"></span>
+                 <span class="dot"></span>
+                 <span class="dot"></span>
+               </div>
+             </div>
+             </div>
+          </div>
+        </header> 
+        
+        <section>
+          <div id="picture_div"> 
+             <img class="img-responsive song_pic rounded-circle" src="http://www.okayplayer.com/wp-content/uploads/2014/01/sam-smith-in-the-lonely-hour-track-list-album-cover.jpg">
+          </div>  
+          <div id="songs_div"> 
+             <p id="popular"><strong>Popular</strong></p>
+             <hr>
+          </div>
+        </section>
+        
+        <footer id="contact" class="container-fluid">
+           <div class="row">
+               <p class="col-sm-4">&copy; 2017 Louis Gabrie</p>
+               <ul class="col-sm-8">
+                   <li class="col-sm-1">
+                   <a href="https://twitter.com/louisgabrie">
+                   <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg"> </a>
+                   </li>
+                   <li class="col-sm-1">
+                   <a href="https://instagram.com/a_visual_bliss"> 
+                   <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg"> </a>
+                   </li>
+               </ul>
+           </div>
+       </footer>  
   </body>
 
 </html>
 
 
-
+      <!--This is the starter code for the modal that adds a song to the playlist.-->
       <!--<input>-->
       <!--<input>-->
       <!--<input>-->
