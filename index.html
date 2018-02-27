@@ -1,68 +1,99 @@
 <!DOCTYPE html>
 <html>
+<head>
+     <title>Playlist</title>
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+     <link href="css/style.css" rel="stylesheet" type="text/css">
+     <script src="js/script.js"></script>
+</head>
 
-  <head>
-      <title>Playlist</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script src="js/script.js"></script>
-  </head>
+<body>
+	<header>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6">
+                   <h1>Music Playlist</h1>
+				</div>
+				<div class="col-md-4">
+					<button class="btn btn-primary shuffle_button"><i class="fas fa-caret-right fa-lg"></i>Shuffle</button>
+					<div class="dropdown" style="margin-top: -30px">
+						<i class="fas fa-ellipsis-v dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" style="color:white; margin-left: 650px; height: 20px"></i>
+						<div aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" data-target="#exampleModal" data-toggle="modal" href="#">Add Song</a>
+							<a class="dropdown-item" id="deletePlayList" href="#">Delete Playlist</a>
+							<!--<a class="dropdown-item" href="#">Play Song</a>-->
+						</div>
+					</div>
+				</div>
+				<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" role="dialog" tabindex="-1">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Add Song</h5>
+								<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+							</div>
+							<div class="modal-body">
+                               <form>
+                                  <div class="form-group">
+                                     <label for="title" class="col-form-label">Title</label>
+                                     <input type="text" class="form-control" id="title">
+                                  </div>
+                                  <div class="form-group">
+                                     <label for="artist" class="col-form-label">Artist</label>
+                                     <input type="text" class="form-control" id="artist">
+                                  </div>
+                                  <div class="form-group">
+                                     <label for="play-link" class="col-form-label">Play link</label>
+                                     <input type="text" class="form-control" id="play-link">
+                                  </div>
+                                  <div class="form-group">
+                                     <label for="album-image" class="col-form-label">Album Image</label>
+                                     <input type="text" class="form-control" id="album-image">
+                                  </div>
+                                  <div class="form-group">
+                                     <label for="lyrics" class="col-form-label">Songs Lyrics</label>
+                                     <input type="text" class="form-control" id="lyrics">
+                                  </div>
+                               </form>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-primary" data-dismiss="modal" type="button" id="submit">Save changes</button> <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div>
+	</header>
+	
+	<section>
+		<div id="picture_div">
+			<img class="img-responsive song_pic rounded-circle" src="http://www.okayplayer.com/wp-content/uploads/2014/01/sam-smith-in-the-lonely-hour-track-list-album-cover.jpg">
+			<p id="picture_divText"><strong>Stay with me</strong></p>
+		</div>
+		<div id="songs_div">
+			<p id="popular"><strong>Popular</strong></p>
+			<hr>
+		</div>
+	</section>
 
-  <body>
-        <header>
-          <div class="container-fluid">
-             <div class="row">
-               <div class="col-md-6">
-                 <h1>Music Playlist</h1> 
-             </div>
-             <div class="col-md-4"> 
-               <button class="btn btn-primary shuffle_button"><i class="fas fa-caret-right play_icon fa-2x"></i>Shuffle</button>
-               <div class="col-md-2 dots_div">
-                 <span class="dot"></span>
-                 <span class="dot"></span>
-                 <span class="dot"></span>
-               </div>
-             </div>
-             </div>
-          </div>
-        </header> 
-        
-        <section>
-          <div id="picture_div"> 
-             <img class="img-responsive song_pic rounded-circle" src="http://www.okayplayer.com/wp-content/uploads/2014/01/sam-smith-in-the-lonely-hour-track-list-album-cover.jpg">
-          </div>  
-          <div id="songs_div"> 
-             <p id="popular"><strong>Popular</strong></p>
-             <hr>
-          </div>
-        </section>
-        
-        <footer id="contact" class="container-fluid">
-           <div class="row">
-               <p class="col-sm-4">&copy; 2017 Louis Gabrie</p>
-               <ul class="col-sm-8">
-                   <li class="col-sm-1">
-                   <a href="https://twitter.com/louisgabrie">
-                   <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg"> </a>
-                   </li>
-                   <li class="col-sm-1">
-                   <a href="https://instagram.com/a_visual_bliss"> 
-                   <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg"> </a>
-                   </li>
-               </ul>
-           </div>
-       </footer>  
-  </body>
-
+	<footer class="container-fluid" id="contact">
+		<div class="row">
+			<p class="col-sm-4">&copy; 2017 Louis Gabrie</p>
+			<ul class="col-sm-8">
+				<li class="col-sm-1">
+					<a href="https://twitter.com/louisgabrie"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg"></a>
+				</li>
+				<li class="col-sm-1">
+					<a href="https://instagram.com/a_visual_bliss"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg"></a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</body>
 </html>
 
-
-      <!--This is the starter code for the modal that adds a song to the playlist.-->
-      <!--<input>-->
-      <!--<input>-->
-      <!--<input>-->
-      <!--<input>-->
-      <!--<button> Add Song </button>-->

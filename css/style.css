@@ -24,32 +24,43 @@ h1 {
     margin-left: 500px;
 } 
 
-.dots_div { 
-   margin-top: -30px; 
+.dropdown-menu { 
+    background: #202328;
 } 
 
-.dot {
-    height: 5px;
-    width: 5px;
-    background-color: white;
-    border-radius: 60%;
-    margin: 2px;
-    display: block;
-    margin-left: 650px;
-}
+.dropdown-item { 
+   color: white;
+} 
 
 header { 
   background: #202328;
   padding: 20px;
 } 
 
-#picture_div { 
-  background: lightgrey;
-  height: 680px;
+
+#picture_div {
+  background-image: url('http://www.okayplayer.com/wp-content/uploads/2014/01/sam-smith-in-the-lonely-hour-track-list-album-cover.jpg');
+  /*background-repeat: no-repeat;*/
+  background-color: black;
+  float: left; 
+  height: 717px;
   width: 600px;
   margin-top: 0px;
   margin-left: -10px;
-  float: left; 
+  /*-webkit-filter: blur(5px);*/
+  /*-moz-filter: blur(5px);*/
+  /*-o-filter: blur(5px);*/
+  /*-ms-filter: blur(5px);*/
+  /*filter: blur(5px);*/
+}
+
+#picture_divText { 
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 190px;
+    margin-top: 20px;
+    font-size: 25px;
 } 
 
 .song_pic { 
@@ -59,13 +70,12 @@ header {
    margin-left: 130px;
 } 
 
-
 #songs_div { 
-  background: #121315;   
+  background: #121315; 
   width: 850px;
-  height: 678px;
+  height: 722px;
   margin-left: 610px;
-  margin-top: -680px;
+  margin-top: -720px;
   float: right;
 } 
 
@@ -82,6 +92,16 @@ hr {
    border: 1px solid #4F5052;
 }
 
+#songs_div h5:hover { 
+   background: black;
+   opacity: 0.5;
+   width: 800px;
+   height: 59px;
+   /*background-position: top 10px;*/
+   margin-top: -10px;
+   margin-bottom: -34px;
+} 
+
 #songs_div h5 { 
    color: white;
    margin-left: 25px; 
@@ -94,16 +114,15 @@ hr {
    font-size: 14px;
 }
 
-.dots_div2 {  
-   margin-top: -50px;
-   margin-left: 140px;
-   padding-bottom: 10px;
+.modal-content { 
+     background: #202328;
+     color: white;
 } 
 
 footer {
   font-size: 12px;
   padding: 20px 0;
-  margin-top: 670px;
+  margin-top: 717px; 
   background-color: black;
 }
 
@@ -130,13 +149,4 @@ footer .row {
   display: flex;
   align-items: center;
 }
-
-
-/*Code for Adele Picture and the Sam Smith Picture */
-/*background: url('https://t2.genius.com/unsafe/523x0/https%3A%2F%2Fimages.rapgenius.com%2F41634c7eb44418d72e1bbff7f0b366bb.500x500x1.jpg') no-repeat;*/
-/*http://www.okayplayer.com/wp-content/uploads/2014/01/sam-smith-in-the-lonely-hour-track-list-album-cover.jpg*/
-
-
-
-
 
