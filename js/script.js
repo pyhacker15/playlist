@@ -30,7 +30,7 @@ $(document).ready(function() {
      $('#songs_list').html("");
      for(var i = 0; i < myPlayList.length; i++) { 
          $('#songs_list').append(
-          '<div id="' + i + '" class="change_image">\
+          '<div id="song-' + i + '" class="change_image">\
              <h5>' + myPlayList[i].title + '</h5>\
              <p>' + myPlayList[i].artist + '</p>\
              <div class="modal fade exampleModalLongTitle" tabindex="1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">\
@@ -53,7 +53,7 @@ $(document).ready(function() {
                  <i class="fas fa-ellipsis-v dropdown-toggle" style="color:white; margin-left: 750px; height: 20px" id="dropdownMenuButton" data-toggle="dropdown"></i>\
                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">\
                      <a class="dropdown-item" data-toggle="modal" data-target=".exampleModalLongTitle" href=".exampleModalLongTitle"> Songs Lyrics </a>\
-                     <a class="dropdown-item deleteSong" href="#">Delete Song</a>\
+                     <a id="deleteSong-' + i +'" class="dropdown-item deleteSong" href="#">Delete Song</a>\
                      <a class="dropdown-item" target="_tab" href=' + myPlayList[i]['mp3-url']  + '> Play Song </a>\
                  </div>\
              </div>\
@@ -63,8 +63,7 @@ $(document).ready(function() {
        }  
       $('.deleteSong').click(function(event) {
 	    console.log('delete song clicked');
-	    console.log($(event.currentTarget).parent().parent().parent().parent());
-    	var idx = $(event.currentTarget).parent().parent().parent().parent().attr('id');
+    	var idx = $(event.currentTarget).attr('id').split("-")[1];
     	deleteSong(idx);
  	  });
      }
@@ -99,7 +98,7 @@ $(document).ready(function() {
    // Caution:  change image on click function is under construction
 
   $(".change_image").click(function(event){    
-    var idx = $(event.currentTarget).attr("id");
+    var idx = $(event.currentTarget).attr("id").split("-")[1];
     $(".song_pic").attr("src", myPlayList[idx]["image-url"]); 
   });
 
