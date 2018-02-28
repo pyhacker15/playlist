@@ -26,24 +26,46 @@ var myPlayList = [
 ];
 
 $(document).ready(function() {
-     function displayList() { 
+    function displayList() { 
+     $('#songs_list').html("");
      for(var i = 0; i < myPlayList.length; i++) { 
-         $('#songs_div').append("<h5 class='change_image'>" + myPlayList[i].title + "</h5>");   
-         $('#songs_div').append("<p>" + myPlayList[i].artist + "</p>");
-         $('#songs_div').append("<div class='modal fade' id='exampleModalLongTitle' tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true'>" + "<div class='modal-dialog' role='document'>" + "<div class='modal-content'>" + "<div class='modal-header'>" + "<h5 class='modal-title'>" + "Song Lyrics" + "</h5>" + "<button style='color:white' aria-label='Close' class='close' data-dismiss='modal' type='button'>" + "<span aria-hidden='true'>&times;</span>" + "</button>"  + "</div>" + "<div class='modal-body'>" + "<p style='color:white' >" + myPlayList[i]['songLyrics'] + "</p>" + "</div>" + "<div class='modal-footer'>" + "<button type='button' class='btn btn-primary' data-dismiss='modal'>Close</button>" + "</div>" + "</div>" + "</div>" + "</div>"); 
-         $('#songs_div').append("<div class='dropdown' style='margin-top: -35px; padding-bottom: 5px; position: static'>" + "<i class='fas fa-ellipsis-v dropdown-toggle' style='color:white; margin-left: 750px; height: 20px' id='dropdownMenuButton' data-toggle='dropdown'></i>" + "<div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuButton'>" + "<a class='dropdown-item' data-toggle='modal' data-target='#exampleModalLongTitle' href='#'> Song's Lyrics </a>" + "<a class='dropdown-item' id='delete_song' href='#'>Delete Song</a>" + "<a class='dropdown-item' target='_tab' href=" + myPlayList[i]['mp3-url']  + ">" + "Play Song" + "</a>" + "</div>" + "</div>");
-         $('#songs_div').append("<hr>");
+         $('#songs_list').append(
+          '<div id="' + i + '" class="change_image">\
+             <h5>' + myPlayList[i].title + '</h5>\
+             <p>' + myPlayList[i].artist + '</p>\
+             <div class="modal fade exampleModalLongTitle" tabindex="1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">\
+                 <div class="modal-dialog" role="document">\
+                     <div class="modal-content">\
+                         <div class="modal-header">\
+                             <h5 class="modal-title">Song Lyrics</h5>\
+                             <button style="color:white" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>\
+                         </div>\
+                     <div class="modal-body">\
+                         <p style="color:white">' + myPlayList[i]['songLyrics'] + '</p>\
+                      </div>\
+                      <div class="modal-footer">\
+                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>\
+                     </div>\
+                  </div>\
+                 </div>\
+             </div>\
+             <div class="dropdown" style="margin-top: -35px; padding-bottom: 5px; position: static">\
+                 <i class="fas fa-ellipsis-v dropdown-toggle" style="color:white; margin-left: 750px; height: 20px" id="dropdownMenuButton" data-toggle="dropdown"></i>\
+                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">\
+                     <a class="dropdown-item" data-toggle="modal" data-target=".exampleModalLongTitle" href=".exampleModalLongTitle"> Songs Lyrics </a>\
+                     <a class="dropdown-item" class="deleteSong" href="#">Delete Song</a>\
+                     <a class="dropdown-item" target="_tab" href=' + myPlayList[i]['mp3-url']  + '> Play Song </a>\
+                 </div>\
+             </div>\
+             <hr>\
+          </div>'
+            ); 
      }    
 } displayList();
-     function clearList() { 
-         $('#songs_div > hr:gt(0)').remove();
-         $('#songs_div > p:gt(0)').remove();
-         $("#songs_div > div").remove();
-         $("#songs_div > h5").remove();
-     } 
+
      $("#deletePlayList").click(function() { 
-         clearList();
          myPlayList = [];
+         displayList();
      });
      function addSong() { 
      $("#submit").click(function() {
@@ -60,80 +82,66 @@ $(document).ready(function() {
              lyrics: lyrics
          }; 
          
-         if ($("#deletePlayList").onclick == true)  { 
-             myPlayList.push(newSong);
-             displayList();
-         } else {  
-             clearList(); 
-             myPlayList.push(newSong);
-             displayList();
-         } 
+         myPlayList.push(newSong);
+         displayList();
+
     });
 } addSong();
+
+// Caution:  change image on click function is under construction
+
+  $(".change_image").click(function(event){    
+    var idx = $(event.currentTarget).attr("id");
+    $(".song_pic").attr("src", myPlayList[idx]["image-url"]); 
+  });
+
+// Caution: deleteSong() function under construction
+
+    function deleteSong(idx){
+		myPlayList.splice(idx, 1);
+		displayList();
+	}
+
+	$('.deleteSong').click(function(event) {
+	    console.log('delete song clicked')
+	    console.log($(event.currentTarget).parent().parent());
+    //	var idx = $(event.currentTarget).parent().parent().attr('id');
+    	deleteSong(1);
+	});
+});
+
+
+
+
+
+//Note: Use just in case if the change_image on click functuin doesn't work. 
+
+// Allows the image to be changed when the disignated song title is clicked. 
+// $("h5:gt(0)").click(function() { 
+//     $(".song_pic").attr("src", myPlayList[0]["image-url"]);
+// });
  
-// this code is taking the amount of songs in the playlist, let's say 3, and then it's making the code in the for loop run three times
- $(".change_image").on("click", function(){    
-     for (var i = 0; i < myPlayList.length; i++) {
-                 $(".song_pic").attr("src", myPlayList[i]["image-url"]); 
-      }
-      $(".song_pic").attr("src", myPlayList[i]["image-url"]);
-});
-});
+// $("h5:gt(2)").click(function() { 
+//     $(".song_pic").attr("src", myPlayList[1]["image-url"]);
+// });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var mySong = {
-// 	"title":"Runnin",
-// 	"artist":"Pharrell Williams",
-// 	"mp3-url":"https://open.spotify.com/album/5ZX4m5aVSmWQ5iHAPQpT71",
-// 	"image-url":"js/runnin.jpg",
-// }
-
-
-// This is the code to display just one song from the playlist 
-
-// var firstSongTitle = myPlayList[0].title;
-// var firstSongArtist = myPlayList[0].artist;
-// var firstSongUrl = myPlayList[0]["mp3-url"];
-// var firstSongImage = myPlayList[0]["image-url"];
-
-// $( document ).ready(function() {
-//   $('body').append("<h3>" + firstSongTitle + "</h3>");
-//   $('body').append("<p>Artist: " + firstSongArtist + "</p>");
-//   $('body').append("<p>Mp3-Url: " + firstSongUrl + "</p>");
-//   $('body').append("<img src =" + firstSongImage + ">");
+// $("h5:gt(3)").click(function() { 
+//     $(".song_pic").attr("src", myPlayList[2]["image-url"]);
 // });
 
 
+// Shuffle Button Fisher - Yates Algorithm
 
-// IMPORTANT STUFF 
+// $(".shuffle_button").click(function() { 
+//      function shuffleArray(array) {
+//          $("#submit").click(function() {
+//     for (let i = array.length - 1; i > 0; i--) {
+//         let j = Math.floor(Math.random() * (i + 1));
+//         [array[i], array[j]] = [array[j], array[i]];
+//     }
+// }); 
+// } 
 
-   //  for(var i = 0; i < myPlayList.length; i++) { 
-   //      ("#songs_div > h5" + [i]).remove();
-   //      $('#songs_div > p:gt(0)' + [i]).remove();
-   //      //$('#songs_div').append("<h5 onclick ='myFunction()'>" + myPlayList[i].title + "</h5>");   
-   //      //$('#songs_div').append("<p>" + myPlayList[i].artist + "</p>");
-   //      //$('#songs_div').append("<div class='modal fade' id='exampleModalLongTitle' tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true'>" + "<div class='modal-dialog' role='document'>" + "<div class='modal-content'>" + "<div class='modal-header'>" + "<h5 class='modal-title'>" + "Song Lyrics" + "</h5>" + "<button style='color:white' aria-label='Close' class='close' data-dismiss='modal' type='button'>" + "<span aria-hidden='true'>&times;</span>" + "</button>"  + "</div>" + "<div class='modal-body'>" + "<p style='color:white' >" + myPlayList[i]['songLyrics'] + "</p>" + "</div>" + "<div class='modal-footer'>" + "<button type='button' class='btn btn-primary' data-dismiss='modal'>Close</button>" + "</div>" + "</div>" + "</div>" + "</div>"); 
-   //      //$('#songs_div').append("<div class='dropdown' style='margin-top: -35px; padding-bottom: 5px; position: static'>" + "<i class='fas fa-ellipsis-v dropdown-toggle' style='color:white; margin-left: 750px; height: 20px' id='dropdownMenuButton' data-toggle='dropdown'></i>" + "<div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuButton'>" + "<a class='dropdown-item' data-toggle='modal' data-target='#exampleModalLongTitle' href='#'> Song's Lyrics </a>" + "<a class='dropdown-item' href='#'>Delete Song</a>" + "<a class='dropdown-item' target='_tab' href=" + myPlayList[i]['mp3-url']  + ">" + "Play Song" + "</a>" + "</div>" + "</div>");
-   //      //$('#songs_div').append("<hr>");
-  	// }
+// shuffleArray(myPlayList[i]["mp3-url"]);
+// });
+
