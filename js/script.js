@@ -53,22 +53,30 @@ $(document).ready(function() {
                  <i class="fas fa-ellipsis-v dropdown-toggle" style="color:white; margin-left: 750px; height: 20px" id="dropdownMenuButton" data-toggle="dropdown"></i>\
                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">\
                      <a class="dropdown-item" data-toggle="modal" data-target=".exampleModalLongTitle" href=".exampleModalLongTitle"> Songs Lyrics </a>\
-                     <a class="dropdown-item" class="deleteSong" href="#">Delete Song</a>\
+                     <a class="dropdown-item deleteSong" href="#">Delete Song</a>\
                      <a class="dropdown-item" target="_tab" href=' + myPlayList[i]['mp3-url']  + '> Play Song </a>\
                  </div>\
              </div>\
              <hr>\
           </div>'
             ); 
-     }    
-} displayList();
+       }  
+      $('.deleteSong').click(function(event) {
+	    console.log('delete song clicked');
+	    console.log($(event.currentTarget).parent().parent().parent().parent());
+    	var idx = $(event.currentTarget).parent().parent().parent().parent().attr('id');
+    	deleteSong(idx);
+ 	  });
+     }
+     displayList();
 
      $("#deletePlayList").click(function() { 
          myPlayList = [];
          displayList();
      });
+     
      function addSong() { 
-     $("#submit").click(function() {
+      $("#submit").click(function() {
          var title = $("#title").val();
          var artist = $("#artist").val();
          var playLink = $("#play-link").val();
@@ -84,30 +92,23 @@ $(document).ready(function() {
          
          myPlayList.push(newSong);
          displayList();
+      });
+    }
+    addSong();
 
-    });
-} addSong();
-
-// Caution:  change image on click function is under construction
+   // Caution:  change image on click function is under construction
 
   $(".change_image").click(function(event){    
     var idx = $(event.currentTarget).attr("id");
     $(".song_pic").attr("src", myPlayList[idx]["image-url"]); 
   });
 
-// Caution: deleteSong() function under construction
-
     function deleteSong(idx){
 		myPlayList.splice(idx, 1);
 		displayList();
 	}
 
-	$('.deleteSong').click(function(event) {
-	    console.log('delete song clicked')
-	    console.log($(event.currentTarget).parent().parent());
-    //	var idx = $(event.currentTarget).parent().parent().attr('id');
-    	deleteSong(1);
-	});
+
 });
 
 
